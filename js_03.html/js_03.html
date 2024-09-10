@@ -1,0 +1,72 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<h1> JavaScript #3 : My Event (15 Marks)</h1>
+
+<button class="btn btn-primary"  id="btn4" >Insert Your Event</button>
+<table id="tb_list" class="table table-striped" >
+	<thead>
+		<tr class="info" >
+			<td></td>
+		</tr>
+	</thead>
+	<tbody></tbody>
+</table>
+
+<!-- Coding JavaScript 3 here!!!! -->
+<script>
+	$(document).ready(function(){
+
+		let counter = 1;
+		$("#btn4").click(function(){
+			createRow()
+		})
+
+		function createRow(){
+			const tbody = document.querySelector('#tb_list tbody');
+			const row = tbody.insertRow();
+
+			// เพิ่มเซลล์ที่แสดงลำดับ
+			const cell1 = row.insertCell();
+			cell1.textContent = "Event #" + counter;
+
+
+			// เพิ่มเซลล์ที่มีช่องกรอกข้อมูล
+			const cell2 = row.insertCell();
+			const input = document.createElement('input');
+			input.type = 'text';
+			input.setAttribute("id", `event${counter}`);
+			input.setAttribute("name", `event${counter}`);
+			input.setAttribute("placeholder", `Detail for event #${counter}`);
+			cell2.appendChild(input);
+			
+			//เพิ่มเซลล์สำหรับกลับข้อมูล
+			const cell3 = row.insertCell();
+			const silhouette = document.createElement('input');
+			silhouette.type = 'text';
+			silhouette.disabled = true;
+			silhouette.setAttribute("id", `silhouette${counter}`);
+			silhouette.setAttribute("name", `silhouette${counter}`);
+			cell3.appendChild(silhouette);
+
+			counter++; // เพิ่มลำดับสำหรับแถวถัดไป
+		};
+
+		$("#event1").onchange = function(){
+			text = $("#event1").val();
+			$("#silhouette1").val(text);
+		}
+
+		$("#event1").on("input", function(){	
+			let result="", text = $("#event1").val();
+			for (i=0; i<text.length; i++) {
+				if (text[i] == text[i].toUpperCase()){
+					result += text[i].toLowerCase();
+				}else{
+					result += text[i].toUpperCase();
+				}
+			}
+    		$("#silhouette1").val(result);
+		})
+	});
+	
+</script>
+<!-- Coding JavaScript 3 here!!!! -->

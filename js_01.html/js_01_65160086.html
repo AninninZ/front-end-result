@@ -1,0 +1,21 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<h1> JavaScript #1 : Happy Birthday (10 Marks)</h1>
+
+<label for="birthday">Birthday:</label>
+<input type="date" id="birthday" name="birthday">
+<button class="btn btn-primary"  id="btn3" onclick="javascript3()" >Save</button>
+<p id="demo"></p>
+
+<!-- Coding JavaScript 1 here!!!! -->
+<Script>
+    function javascript3(){
+        var months_th = [" ", "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม", ];
+        let date = $("#birthday").val()
+        let dateSplit = date.split("-")
+        dateSplit[0] = 543 + parseInt(dateSplit[0]);
+        dateSplit[1] = months_th[parseInt(dateSplit[1])];
+        $("#demo").text("วันที่ " + dateSplit[2] + " " + dateSplit[1] + " พ.ศ. " + dateSplit[0])
+    }
+</Script>
+<!-- Coding JavaScript 1 here!!!! -->

@@ -1,0 +1,51 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<h1> JavaScript #2 : Data Privacy (20 Marks)</h1>
+
+<button class="btn btn-primary"  id="btn1" onclick="javascript1()" >Personal Data</button>
+<button class="btn btn-primary"  id="btnx" onclick="javascript_lev2_1()" >Slide On</button>
+<button class="btn btn-primary"  id="btn2" onclick="javascript2()" disabled>Anonymize</button>
+
+<div id="display">
+      <p id="str1" >First Name : xxxxxxx</p>
+      <p id="str2" >Last Name : xxxxxxx</p>
+      <p id="str3" >String length : xx</p>
+</div>
+
+
+<!-- Coding JavaScript 2 here!!!! -->
+<script>
+      let hide = false;
+      let fName = "";
+      let LName = "";
+      function javascript_lev2_1(){
+            if ($("#display").css("display") == "none") {
+			$("#display").slideToggle("fast"); 
+		} else {
+			$("#display").slideToggle("fast"); 
+		}
+      }
+
+      function javascript1(){
+            fName = prompt("Please enter your First Name", "Rachata");
+            LName = prompt("Please enter your Lirst Name", "Khawngam");
+            let fullName = fName+LName; 
+            $("#str1").text("First Name : " + fName);
+            $("#str2").text("Last Name : " + LName);
+            $("#str3").text("String length : " + fullName.length);
+            $("#btn2").removeAttr('disabled');
+      }
+      function javascript2(){
+            if(!hide){
+                  $("#str1").text("First Name : " + fName.substring(0, 1) + ".");
+                  $("#str2").text("Last Name : " + LName.substring(0, 1) + ".");
+                  hide = true;
+            }else{
+                  $("#str1").text("First Name : " + fName);
+                  $("#str2").text("Last Name : " + LName);
+                  hide = false;
+            }
+            
+      }
+</script>
+<!-- Coding JavaScript 2 here!!!! -->
